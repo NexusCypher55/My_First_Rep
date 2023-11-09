@@ -1,0 +1,45 @@
+#Celsius to Fahrenheit converter (OOP, Tkinter)
+
+from tkinter import Tk,Label,Button,Entry
+
+
+class App:
+    def __init__(self,master):
+        self.master = master
+        master.title("Konwerter")
+        master.geometry("300x200")
+        master.configure(bg="lightgray")
+
+        self.label1 = Label(master,text="Celsius",bg="orange",fg="white")
+        self.label1.place(x=10,y=10,width=100,height=20)
+
+        self.label2 = Label(master, text="Fahrenheit",bg="blue",fg="white")
+        self.label2.place(x=180, y=10, width=100, height=20)
+
+        self.label3 = Label(master,bg="white",bd=2,relief="sunken")
+        self.label3.place(x=180, y=30, width=100, height=20)
+
+        self.entry1 = Entry(master,bd=2,relief="sunken")
+        self.entry1.place(x=10, y=30, width=100, height=20)
+
+        self.button1 = Button(master,text="Convert",bg="green",command=self.convert)
+        self.button1.place(x=100, y=60, width=100, height=40)
+
+        self.button2 = Button(master, text="Clear",bg="red",command=self.clear)
+        self.button2.place(x=100, y=110, width=100, height=40)
+
+    def convert(self):
+        t = float(self.entry1.get())
+        self.label3["text"] = round(t*1.8+32,2)
+
+
+    def clear(self):
+        App(root)
+
+
+
+root = Tk()
+my_app = App(root)
+root.mainloop()
+
+
